@@ -1,51 +1,54 @@
-import {
-  Slider,
-  SliderTrack,
-  SliderFilledTrack,
-  SliderThumb,
-  Checkbox,
-  CheckboxGroup,
-  Stack
-} from '@chakra-ui/react';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import GeneratedPass from '../components/GeneratedPass';
+import LengthSlider from '../components/LengthSlider';
+import Options from '../components/Options';
+import generatePassword from '../utils/generate-password';
+import OptionsData from '../utils/options-data';
 
 function HomePage() {
-  const [sliderValue, setSliderValue] = useState(3);
+  const [optionValues, setOptionValues] = useState(OptionsData.defaults);
+  const [sliderValue, setSliderValue] = useState(8);
+  const [generatedPassword, setGeneratedPassword] = useState('');
+  const generatedPasswordInputRef = useRef();
+
+  useEffect(() => {
+    setGeneratedPassword(generatePassword(sliderValue, optionValues));
+  }, []);
+
+  useEffect(() => {
+    generatedPasswordInputRef.current.value = generatedPassword;
+  }, [generatedPassword]);
+
+  const onSliderChange = (event) => {
+    setGeneratedPassword(generatePassword(event, optionValues));
+    setSliderValue(event);
+  };
+
+  const onOptionsChange = (event) => {
+    const newOptions = {
+      ...optionValues,
+      [event.target.name]: event.target.checked
+    };
+    setGeneratedPassword(generatePassword(sliderValue, newOptions));
+    setOptionValues(newOptions);
+  };
 
   return (
     <div className="pt-20 antialiased">
       <div className="mx-auto w-full max-w-sm relative mx-auto shadow-lg rounded-lg border">
         <h1 className="text-center text-xl mb-4 pt-5">Password Generator</h1>
-        <div className="border-b-2 py-3">
-          <input className="pl-5 pr-16 w-full focus:outline-0 font-normal text-lg" />
+        <GeneratedPass inputRef={generatedPasswordInputRef} />
+        <div className="p-5">
+          <LengthSlider
+            sliderValue={sliderValue}
+            onSliderChange={onSliderChange}
+          />
         </div>
         <div className="p-5">
-          <div className="mb-1">
-            Length <span className="font-medium">{sliderValue}</span>
-          </div>
-          <Slider
-            aria-label="slider-ex-1"
-            defaultValue={sliderValue}
-            min={1}
-            max={32}
-            step={1}
-            onChange={(val) => setSliderValue(val)}
-          >
-            <SliderTrack>
-              <SliderFilledTrack />
-            </SliderTrack>
-            <SliderThumb boxSize={5} bg="blue.500" />
-          </Slider>
-        </div>
-        <div className="p-5">
-          <CheckboxGroup>
-            <div className="flex flex-wrap justify-between">
-              <Checkbox>Uppercase</Checkbox>
-              <Checkbox>Lowercase</Checkbox>
-              <Checkbox>Numbers</Checkbox>
-              <Checkbox>Symbols</Checkbox>
-            </div>
-          </CheckboxGroup>
+          <Options
+            optionValues={optionValues}
+            onOptionsChange={onOptionsChange}
+          />
         </div>
       </div>
     </div>
