@@ -29,6 +29,12 @@ function HomePage() {
       ...optionValues,
       [event.target.name]: event.target.checked
     };
+
+    const trueOptions = Object.values(newOptions).filter((option) => option);
+
+    // Atleast one option should be enabled
+    if (trueOptions.length === 0) return;
+
     setGeneratedPassword(generatePassword(sliderValue, newOptions));
     setOptionValues(newOptions);
   };
@@ -37,7 +43,10 @@ function HomePage() {
     <div className="pt-20 antialiased">
       <div className="mx-auto w-full max-w-sm relative mx-auto shadow-lg rounded-lg border">
         <h1 className="text-center text-xl mb-4 pt-5">Password Generator</h1>
-        <GeneratedPass inputRef={generatedPasswordInputRef} />
+        <GeneratedPass
+          inputRef={generatedPasswordInputRef}
+          setSliderValue={setSliderValue}
+        />
         <div className="p-5">
           <LengthSlider
             sliderValue={sliderValue}

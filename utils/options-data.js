@@ -13,4 +13,7 @@ const OptionsData = {
   }
 };
 
+export const minPassLength = 1;
+export const maxPassLength = 32;
+
 export default OptionsData;

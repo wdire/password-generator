@@ -1,11 +1,10 @@
+import { minPassLength, maxPassLength } from '../utils/options-data';
 import {
   Slider,
   SliderTrack,
   SliderFilledTrack,
   SliderThumb
 } from '@chakra-ui/react';
-
-import { useState } from 'react';
 
 const LengthSlider = ({ sliderValue, onSliderChange }) => {
   return (
@@ -16,8 +15,9 @@ const LengthSlider = ({ sliderValue, onSliderChange }) => {
       <Slider
         aria-label="slider-ex-1"
         defaultValue={sliderValue}
-        min={1}
-        max={32}
+        value={sliderValue}
+        min={minPassLength}
+        max={maxPassLength}
         step={1}
         onChange={(val) => onSliderChange(val)}
       >
