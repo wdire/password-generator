@@ -42,7 +42,7 @@ function HomePage() {
     // Atleast one option should be enabled
     if (trueOptions.length === 0) return;
 
-    const newGeneratedPassword = generatePassword(sliderValue, optionValues);
+    const newGeneratedPassword = generatePassword(sliderValue, newOptions);
     setGeneratedPassword(newGeneratedPassword);
     setPasswordStrongness(passwordStrongCheck(newGeneratedPassword));
     setOptionValues(newOptions);
