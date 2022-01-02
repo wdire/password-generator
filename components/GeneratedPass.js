@@ -1,4 +1,9 @@
 import { useEffect, useState } from 'react';
+import {
+  greatStrengthLimit,
+  lowStrengthLimit,
+  mediumStrengthLimit
+} from '../utils/options-data';
 
 const GeneratedPass = ({
   inputRef,
@@ -8,11 +13,11 @@ const GeneratedPass = ({
   const [progressBarClass, setProgressBarClass] = useState('');
 
   useEffect(() => {
-    if (passwordStrongness > 100) {
+    if (passwordStrongness > greatStrengthLimit) {
       setProgressBarClass('w-full bg-green-500');
-    } else if (passwordStrongness > 50) {
+    } else if (passwordStrongness > mediumStrengthLimit) {
       setProgressBarClass('w-3/4 bg-blue-500');
-    } else if (passwordStrongness > 25) {
+    } else if (passwordStrongness > lowStrengthLimit) {
       setProgressBarClass('w-2/4 bg-orange-500');
     } else {
       setProgressBarClass('w-1/4 bg-red-500');

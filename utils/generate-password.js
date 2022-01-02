@@ -1,4 +1,9 @@
-import { symbolsToUse } from './options-data';
+import {
+  allLowercase,
+  allNumbers,
+  allUppercase,
+  symbolsToUse
+} from './options-data';
 
 const generatePassword = (length, options) => {
   const lowercase = 'abcdefghijklmnopqrstuvwxyz';
@@ -9,15 +14,15 @@ const generatePassword = (length, options) => {
   let output = '';
 
   if (options.lowercase) {
-    charset += lowercase;
+    charset += allLowercase;
   }
 
   if (options.uppercase) {
-    charset += uppercase;
+    charset += allUppercase;
   }
 
   if (options.numbers) {
-    charset += numbers;
+    charset += allNumbers;
   }
 
   if (options.symbols) {
