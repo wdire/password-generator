@@ -15,5 +15,7 @@ const OptionsData = {
 
 export const minPassLength = 1;
 export const maxPassLength = 32;
+export const allSymbols = "@%+/'!#$*^?:.(){}[]~-_>;&";
+export const symbolsToUse = '%$#&^!@*_-.';
 
 export default OptionsData;

@@ -1,8 +1,9 @@
+import { symbolsToUse } from './options-data';
+
 const generatePassword = (length, options) => {
   const lowercase = 'abcdefghijklmnopqrstuvwxyz';
   const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const numbers = '0123456789';
-  const symbols = '%$#&^!@*';
 
   let charset = '';
   let output = '';
@@ -20,7 +21,7 @@ const generatePassword = (length, options) => {
   }
 
   if (options.symbols) {
-    charset += symbols;
+    charset += symbolsToUse;
   }
 
   charset = charset.split('');

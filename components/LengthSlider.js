@@ -6,7 +6,7 @@ import {
   SliderThumb
 } from '@chakra-ui/react';
 
-const LengthSlider = ({ sliderValue, onSliderChange }) => {
+const LengthSlider = ({ sliderValue, onSliderChange, inputRef }) => {
   return (
     <>
       <div className="mb-1">
@@ -20,6 +20,9 @@ const LengthSlider = ({ sliderValue, onSliderChange }) => {
         max={maxPassLength}
         step={1}
         onChange={(val) => onSliderChange(val)}
+        onFocus={(e) => {
+          inputRef.current.focus();
+        }}
       >
         <SliderTrack>
           <SliderFilledTrack />
