@@ -1,15 +1,6 @@
-import {
-  allLowercase,
-  allNumbers,
-  allUppercase,
-  symbolsToUse
-} from './options-data';
+import { allLowercase, allNumbers, allUppercase, symbolsToUse } from './config';
 
 const generatePassword = (length, options) => {
-  const lowercase = 'abcdefghijklmnopqrstuvwxyz';
-  const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  const numbers = '0123456789';
-
   let charset = '';
   let output = '';
 

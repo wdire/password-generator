@@ -3,12 +3,13 @@ import GeneratedPass from '../components/GeneratedPass';
 import LengthSlider from '../components/LengthSlider';
 import Options from '../components/Options';
 import generatePassword from '../utils/generate-password';
-import OptionsData from '../utils/options-data';
+import { optionsData, maxPassLength } from '../utils/config';
 import passwordStrongCheck from '../utils/password-strong-check';
-import { maxPassLength } from '../utils/options-data';
+
+//TODO: Add dark mode
 
 function HomePage() {
-  const [optionValues, setOptionValues] = useState(OptionsData.defaults);
+  const [optionValues, setOptionValues] = useState(optionsData.defaults);
   const [sliderValue, setSliderValue] = useState(8);
   const [generatedPassword, setGeneratedPassword] = useState('');
   const [passwordStrongness, setPasswordStrongness] = useState(0);

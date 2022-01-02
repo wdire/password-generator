@@ -1,4 +1,4 @@
-import { allNumbers, allSymbols, maxStrikeIncrease } from './options-data';
+import { allNumbers, allSymbols, maxStrikeIncrease } from './config';
 
 const passwordStrongCheck = (password) => {
   let score = 0;
@@ -91,7 +91,7 @@ const calculateDeductions = (passwordParts) => {
 
   // TODO: Add sequential letters & numbers & symbols
 
-  console.log('negative score:', score);
+  //console.log('negative score:', score);
 
   return score;
 };
@@ -120,7 +120,7 @@ const repetitiveCharacters = (passwordParts) => {
     }
   }
 
-  console.log('repetitive score:', repetitiveScore * 2);
+  console.log('repetitive score:-', repetitiveScore * 2);
 
   return repetitiveScore;
 };
@@ -173,7 +173,7 @@ const consecutiveCharacters = (passwordParts) => {
     }
   }
 
-  console.log('cconsecutive score:', consecutiveScore, 'total:');
+  console.log('consecutive score:-', consecutiveScore);
 
   return (
     consecutiveScore.letters +

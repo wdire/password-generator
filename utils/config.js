@@ -1,4 +1,4 @@
-const OptionsData = {
+export const optionsData = {
   names: {
     uppercase: 'Uppercase',
     lowercase: 'Lowercase',
@@ -25,5 +25,3 @@ export const maxStrikeIncrease = 3;
 export const lowStrengthLimit = 25;
 export const mediumStrengthLimit = 45;
 export const greatStrengthLimit = 80;
-
-export default OptionsData;

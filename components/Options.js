@@ -1,5 +1,5 @@
-import { Checkbox, CheckboxGroup } from '@chakra-ui/react';
-import OptionsData from '../utils/options-data';
+import { Checkbox } from '@chakra-ui/react';
+import { optionsData } from '../utils/config';
 
 const Options = ({ optionValues, onOptionsChange }) => {
   return (
@@ -8,7 +8,7 @@ const Options = ({ optionValues, onOptionsChange }) => {
         className="flex flex-wrap justify-between"
         onChange={onOptionsChange}
       >
-        {Object.entries(OptionsData.names).map((option, index) => {
+        {Object.entries(optionsData.names).map((option, index) => {
           return (
             <Checkbox
               name={option[0]}

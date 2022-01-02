@@ -3,7 +3,7 @@ import {
   greatStrengthLimit,
   lowStrengthLimit,
   mediumStrengthLimit
-} from '../utils/options-data';
+} from '../utils/config';
 
 const GeneratedPass = ({
   inputRef,

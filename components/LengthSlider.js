@@ -1,4 +1,4 @@
-import { minPassLength, maxPassLength } from '../utils/options-data';
+import { minPassLength, maxPassLength } from '../utils/config';
 import {
   Slider,
   SliderTrack,
