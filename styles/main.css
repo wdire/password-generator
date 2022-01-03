@@ -11,3 +11,12 @@ body {
     @apply shadow-none border-0;
   }
 }
+
+input,
+textarea,
+button,
+select,
+a {
+  -webkit-tap-highlight-color: transparent !important;
+  outline: none !important;
+}

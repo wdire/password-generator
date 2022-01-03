@@ -58,6 +58,12 @@ function HomePage() {
     setPasswordStrongness(passwordStrongCheck(event.target.value));
   };
 
+  const onRefreshClicked = () => {
+    const newGeneratedPassword = generatePassword(sliderValue, optionValues);
+    setGeneratedPassword(newGeneratedPassword);
+    setPasswordStrongness(passwordStrongCheck(newGeneratedPassword));
+  };
+
   return (
     <div className="pt-20 antialiased">
       <div className="box-container">
@@ -66,6 +72,7 @@ function HomePage() {
           inputRef={generatedPasswordInputRef}
           onPasswordInputChange={onPasswordInputChange}
           passwordStrongness={passwordStrongness}
+          onRefreshClicked={onRefreshClicked}
         />
         <div className="p-5">
           <LengthSlider

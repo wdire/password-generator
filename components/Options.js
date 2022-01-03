@@ -14,6 +14,7 @@ const Options = ({ optionValues, onOptionsChange }) => {
               name={option[0]}
               isChecked={optionValues[option[0]]}
               key={option[0] + '-' + index}
+              marginBottom={3}
             >
               {option[1]}
             </Checkbox>
