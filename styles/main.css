@@ -1,0 +1,13 @@
+body {
+  @apply dark:bg-gray-800 dark:text-white;
+}
+
+.box-container {
+  @apply mx-auto w-full max-w-sm relative shadow-lg rounded-lg border dark:border-gray-600;
+}
+
+@media (max-width: 400px) {
+  .box-container {
+    @apply shadow-none border-0;
+  }
+}

@@ -60,7 +60,7 @@ function HomePage() {
 
   return (
     <div className="pt-20 antialiased">
-      <div className="mx-auto w-full max-w-sm relative mx-auto shadow-lg rounded-lg border">
+      <div className="box-container">
         <h1 className="text-center text-xl mb-4 pt-5">Password Generator</h1>
         <GeneratedPass
           inputRef={generatedPasswordInputRef}

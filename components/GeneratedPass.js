@@ -28,7 +28,7 @@ const GeneratedPass = ({
     <>
       <div className="relative py-3">
         <input
-          className="pl-5 pr-16 w-full focus:outline-0 font-normal text-lg"
+          className="pl-5 pr-16 w-full focus:outline-0 font-normal text-lg bg-transparent"
           ref={inputRef}
           onChange={onPasswordInputChange}
         />
